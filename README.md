@@ -14,8 +14,8 @@ An Advanced OwO Selfbot Helps You To Earn Cowoncy Automatically!
 ## Features
 
 - (PROS) Automatically Stop If Captcha Is Asked And Sent Through Discord Webhook
-- (PROS) Automatically Use Gems
-- (PROS) Automatically Send Random Quotes To Increase EXP
+- (PROS) Automatically Use Gems - Updated Special Gems Usage
+- (PROS) Automatically Send Random Quotes To Increase EXP - Updated New Random Quotes API
 - (PROS) Automatically Change Channel
 - (PROS) Automatically Pray
 - (PROS) Automatically Stop After A Period Time
