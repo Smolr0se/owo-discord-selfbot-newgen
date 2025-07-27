@@ -31,7 +31,7 @@ except:
     from discum.utils.slash import SlashCommander
     from discord_webhook import DiscordWebhook
 
-wbm = [15, 60]
+wbm = [10, 60]
 ui = UI()
 client = data()
 
@@ -176,7 +176,7 @@ def runner() -> None:
         client.totalcmd += 1
     if command2 != command:
         bot.typingAction(client.channel)
-        sleep(random.randint(15, 60))
+        sleep(random.randint(10, 60))
         if not client.stopped:
             slash(command=command2)
             ui.slowPrinting(f"{at()}{color.okgreen} [SENT] {color.reset} {command2}")
@@ -206,7 +206,7 @@ def owoexp() -> None:
                     bot.sendMessage(client.channel, owo)
                     quote_count = 0  # Đặt lại số đếm
                     quote_threshold = random.randint(1, 5)  # Chọn ngưỡng mới
-                sleep(random.randint(15, 60))
+                sleep(random.randint(10, 60))
             else:
                 ui.slowPrinting(f"{color.fail}[ERROR] DummyJSON API failed: {response.status_code}{color.reset}")
         except Exception as e:
@@ -217,7 +217,7 @@ def owopray() -> None:
         bot.sendMessage(client.channel, "owo pray")
         ui.slowPrinting(f"{at()}{color.okgreen} [SENT] {color.reset} owo pray")
         client.totalcmd += 1
-        sleep(random.randint(15, 60))
+        sleep(random.randint(10, 60))
 
 def daily() -> None:
     if client.daily == "YES" and not client.stopped:
@@ -261,7 +261,7 @@ def sell() -> None:
             sleep(3)
             bot.sendMessage(client.channel, f"owo sell {client.sell['types'].lower()}")
             ui.slowPrinting(f"{at()}{color.okgreen} [SENT] {color.reset} owo sell {client.sell['types']}")
-        sleep(random.randint(15, 60))
+        sleep(random.randint(10, 60))
 
 def changeChannel() -> str:
     channel2 = []
@@ -383,7 +383,7 @@ def loopie() -> None:
             if time() - pray > random.randint(300, 600) and not client.stopped:
                 owopray()
                 pray = time()
-            if time() - exp > random.randint(15, 60) and not client.stopped:
+            if time() - exp > random.randint(10, 60) and not client.stopped:
                 owoexp()
                 exp = time()
             if client.sm == "YES":
@@ -431,10 +431,10 @@ def atexit() -> None:
         execl(executable, executable, *argv)
     elif choice == "2":
         ui.slowPrinting("Having Issue? Tell Us In Our Support Server")
-        ui.slowPrinting(f"{color.purple} https://discord.gg/9uZ6eXFPHD {color.reset}")
+        ui.slowPrinting(f"{color.purple} https://discord.gg/qSakx4K5Zw {color.reset}")
         choice = inputimeout(prompt=f"{color.okgreen}Open Invite Link In Webbrowser (YES/NO): ", timeout=10)
         if choice.lower() == "yes":
-            if open_browser("https://discord.gg/9uZ6eXFPHD"):
+            if open_browser("https://discord.gg/qSakx4K5Zw"):
                 ui.slowPrinting(f"{color.okgreen}Opened Invite Link In Browser {color.reset}")
             else:
                 ui.slowPrinting(f"{color.fail}Failed To Open Invite Link In Browser {color.reset}")
