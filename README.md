@@ -9,24 +9,23 @@ An Advanced OwO Selfbot Helps You To Earn Cowoncy Automatically!
 
 ## Newgen Leecher Dev
 
-- [@Smolr0se](https://github.com/Smolr0se)
+- [@Smolr0se](https://github.com/Smolr0se) - tbh, I use AI to help me upgrading and solving almost all 
 
 ## Features
 
-- Automatically Stop If Captcha Is Asked And Sent Through Discord Webhook
-- Automatically Use Gems
-- Automatically Send Random Quotes To Increase EXP
-- Automatically Change Channel
-- Automatically Pray
-- Automatically Stop After A Period Time
-- Automatically Send Hunt And Battle
-- Automatically Sell Animals For Cowoncy
-- Automatically Claim Daily
-- Cross platform (Windows, Linux, ...)
-- And MORE...!
-
+- (PROS) Automatically Stop If Captcha Is Asked And Sent Through Discord Webhook
+- (PROS) Automatically Use Gems
+- (PROS) Automatically Send Random Quotes To Increase EXP
+- (PROS) Automatically Change Channel
+- (PROS) Automatically Pray
+- (PROS) Automatically Stop After A Period Time
+- (PROS) Automatically Send Hunt And Battle
+- (PROS) Automatically Sell Animals For Cowoncy
+- (PROS) Automatically Claim Daily
+- (PROS) Cross platform (Windows, Linux, ...)
+- (PROS) And MORE...!
+- (CONS) Still using Discum - an old discord selfbot library which have been stopped developing since 2022
 - (NO LONGER SUPPORT) Automatically Solve Captcha
-
 ## Installation
 
 Install discord-selfbot-owo-bot with Python and Github
