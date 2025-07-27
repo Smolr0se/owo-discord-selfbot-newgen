@@ -1,26 +1,27 @@
 {
-  "token": null,
-  "channel": null,
-  "gm": true,
-  "pm": true,
-  "em": {
-    "text": true,
-    "owo": true
-  },
-  "sm": true,
-  "webhook": {
-    "link": null,
-    "ping": null
-  },
-  "sbcommands": {
-    "enable": true,
-    "prefix": ".",
-    "allowed_id": null
-  },
-  "daily": true,
-  "sell": {
-    "enable": true,
-    "types": "all"
-  },
-  "solve": true
+    "token": "your-discord-token",
+    "channel": "your-discord-channel-id",
+    "gm": "YES",
+    "sm": "YES",
+    "pm": "YES",
+    "em": {
+        "text": "YES",
+        "owo": "YES"
+    },
+    "webhook": {
+        "link": null 
+        "ping": null 
+    },
+    "sbcommands": {
+        "enable": "NO",
+        "prefix": ".", 
+        "allowedid": null
+    },
+    "daily": "YES",
+    "stop": "",
+    "sell": {
+        "enable": "YES",
+        "types": "all"
+    },
+    "change": "YES"
 }
