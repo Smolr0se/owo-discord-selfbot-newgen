@@ -1,5 +1,5 @@
 
-# Discord OwO Selfbot
+# OwO Discord Selfbot (Newgen) v0.0.1
 
 An Advanced OwO Selfbot Helps You To Earn Cowoncy Automatically!
 
