@@ -64,7 +64,7 @@ Or
 
 #### How Much Money It Can Earn In One Day?
 
-Around 300.000 - 1.000.000 Cowoncys (at maximum) With Mythical+ Gems
+Around 300.000 - 1.000.000 Cowoncys (at maximum)
 
 #### Can This Selfbot Run Efficiency On New Accounts?
 
