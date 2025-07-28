@@ -52,6 +52,12 @@ class gems:
                 sleep(5)
                 self.available = list(self.gemtypes)
                 return
+            if '049' in inv:
+                self.bot.sendMessage(str(client.channel), "owo lb f all")
+                ui.slowPrinting(f"{self.at()}{color.okgreen} [SENT] {color.reset} owo lb f all")
+                sleep(5)
+                self.available = list(self.gemtypes)
+                return
             if '100' in inv:
                 self.bot.sendMessage(str(client.channel), "owo crate all")
                 ui.slowPrinting(f"{self.at()}{color.okgreen} [SENT] {color.reset} owo crate all")
@@ -77,16 +83,27 @@ class gems:
                 self.available.append(4)
             if tier[3]:
                 self.available.append(5)
+            # Check active gems before using
+            active_gems = []
+            for i in range(len(msgs)):
+                if msgs[i]['author']['id'] == client.OwOID and "**🌱" in msgs[i]['content']:
+                    active_gems = findall(self.regex, msgs[i]['content'])
+                    break
+            active_gem_types = [int(gem[0]) for gem in active_gems] if active_gems else []
+            if len(active_gem_types) >= 4:
+                ui.slowPrinting(f"{self.at()}{color.okcyan} [INFO] {color.reset} All required gems are already active")
+                return
+            # Only use gems that are not already active
             use = []
             for level in gemslist:
-                if level < len(tier) and tier[level]:
+                if level < len(tier) and tier[level] and level not in active_gem_types:
                     use.append(str(max(tier[level])))
             if use:
                 sleep(5)
                 self.bot.sendMessage(str(client.channel), "owo use " + ' '.join(use))
                 ui.slowPrinting(f"{self.at()}{color.okgreen} [SENT] {color.reset} owo use {' '.join(use)}")
             else:
-                ui.slowPrinting(f"{self.at()}{color.okcyan} [INFO] {color.reset} You Don't Have Any Available Gems")
+                ui.slowPrinting(f"{self.at()}{color.okcyan} [INFO] {color.reset} You Don't Have Any Available Gems to Use")
 
     def detect(self):
         m = self.bot.getMessages(client.channel, num=10)
