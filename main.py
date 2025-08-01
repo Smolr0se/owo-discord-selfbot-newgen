@@ -212,7 +212,7 @@ def runner() -> None:
         command = random.choice(client.commands)
         command2 = random.choice(client.commands)
         bot.typingAction(client.channel)
-        sleep(random.randint(5, 15))  # Trước là 5-15
+        sleep(random.randint(10, 30)) 
         if not client.stopped:
             slash(command=command)
             logger.info(f"Sent command: {command}")
@@ -220,12 +220,12 @@ def runner() -> None:
             client.totalcmd += 1
         if command2 != command and not client.stopped:
             bot.typingAction(client.channel)
-            sleep(random.randint(5, 15))  # Trước là 10-60
+            sleep(random.randint(10, 30))  
             slash(command=command2)
             logger.info(f"Sent command: {command2}")
             ui.slowPrinting(f"{at()}{color.okgreen} [SENT] {color.reset} {command2}")
             client.totalcmd += 1
-        sleep(random.randint(wbm[0], wbm[1]))  # Sẽ là 10-30s
+        sleep(random.randint(wbm[0], wbm[1]))  
     except Exception as e:
         logger.error(f"Error in runner: {str(e)}")
         sleep(60)
@@ -327,32 +327,16 @@ def daily() -> None:
                 ui.slowPrinting(f"{at()}{color.okblue} [INFO] {color.reset} Claimed Daily")
 
 def sell() -> None:
-    if client.sell['enable'] == "YES" and not client.stopped:
-        try:
-            bot.typingAction(client.channel)
-            sleep(random.randint(2, 6))  # Trước là 5-15
-            if client.sell['types'].lower() == "all":
-                send_response = bot.sendMessage(client.channel, "owo sell all")
-                if send_response.status_code == 429:
-                    logger.warning("Rate limit detected in sell, pausing for 120s")
-                    ui.slowPrinting(f"{at()}{color.fail}[ERROR] Rate-limited detected from Discord, pausing for 120s...{color.reset}")
-                    sleep(120)
-                    return
-                logger.info("Sent command: owo sell all")
-                ui.slowPrinting(f"{at()}{color.okgreen} [SENT] {color.reset} owo sell all")
-            else:
-                send_response = bot.sendMessage(client.channel, f"owo sell {client.sell['types'].lower()}")
-                if send_response.status_code == 429:
-                    logger.warning("Rate limit detected in sell, pausing for 120s")
-                    ui.slowPrinting(f"{at()}{color.fail}[ERROR] Rate-limited detected from Discord, pausing for 120s...{color.reset}")
-                    sleep(120)
-                    return
-                logger.info(f"Sent command: owo sell {client.sell['types'].lower()}")
-                ui.slowPrinting(f"{at()}{color.okgreen} [SENT] {color.reset} owo sell {client.sell['types']}")
-            sleep(random.randint(600, 1200))  # Trước là 1200-3600
-        except Exception as e:
-            logger.error(f"Error in sell: {str(e)}")
-            sleep(60)
+    try:
+        sell_type = client.sell.get('types', 'all')
+        bot.typingAction(client.channel)
+        sleep(random.randint(2, 6))
+        bot.sendMessage(client.channel, f"owo sell {sell_type}")
+        logger.info(f"Sent command: owo sell {sell_type}")
+        ui.slowPrinting(f"{at()}{color.okgreen} [SENT] {color.reset} owo sell {sell_type}")
+    except Exception as e:
+        logger.error(f"Error in sell: {str(e)}")
+        sleep(5)
 
 def changeChannel() -> str:
     try:
@@ -527,11 +511,11 @@ def loopie() -> None:
 
             # Sleep mode giữ nguyên
             if client.sm == "YES" and not client.stopped:
-                if now - main > random.randint(1200, 1800):
+                if now - main > random.randint(100, 500):
                     main = now
                     logger.info("Entering sleep mode")
                     ui.slowPrinting(f"{at()}{color.okblue} [INFO]{color.reset} Sleeping")
-                    sleep(random.randint(600, 900))
+                    sleep(random.randint(100, 500))
 
             # Stop Mode giữ nguyên
             if client.stop and client.stop.isdigit() and not client.stopped:
@@ -541,7 +525,7 @@ def loopie() -> None:
 
             # Sell giữ nguyên
             if client.sell['enable'] == "YES" and not client.stopped:
-                if now - selltime > random.randint(1200, 3600):
+                if now - selltime > 600:  # 600 giây = 10 phút
                     selltime = now
                     sell()
 
