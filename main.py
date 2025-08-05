@@ -330,7 +330,7 @@ def sell() -> None:
     try:
         sell_type = client.sell.get('types', 'all')
         bot.typingAction(client.channel)
-        sleep(random.randint(2, 6))
+        sleep(random.randint(20, 60))
         bot.sendMessage(client.channel, f"owo sell {sell_type}")
         logger.info(f"Sent command: owo sell {sell_type}")
         ui.slowPrinting(f"{at()}{color.okgreen} [SENT] {color.reset} owo sell {sell_type}")
@@ -511,7 +511,7 @@ def loopie() -> None:
 
             # Sleep mode giữ nguyên
             if client.sm == "YES" and not client.stopped:
-                if now - main > random.randint(100, 500):
+                if now - main > random.randint(300, 1000):
                     main = now
                     logger.info("Entering sleep mode")
                     ui.slowPrinting(f"{at()}{color.okblue} [INFO]{color.reset} Sleeping")
